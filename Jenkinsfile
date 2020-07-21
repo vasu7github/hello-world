@@ -1,5 +1,8 @@
 ppipeline{
     agent any
+    environment{
+    PATH = "C:\apache-maven-3.6.3\bin"
+    }
     stages{
         stage("SCM checkout"){
             steps{
@@ -8,7 +11,7 @@ ppipeline{
         }
         stage("maven Build"){
             steps{
-                sh "mvn clean package"
+                bat "mvn clean package"
             }
         }
     }
