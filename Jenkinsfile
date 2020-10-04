@@ -1,7 +1,7 @@
 ppipeline{
     agent any
     environment{
-    PATH = "C:\apache-maven-3.6.3\bin"
+    PATH = "C:\DevTools\apache-maven-3.6.3"
     }
     stages{
         stage("SCM checkout"){
