@@ -1,4 +1,4 @@
-ppipeline{
+pipeline{
     agent any
     environment{
     PATH = "C:\\DevTools\\apache-maven-3.6.3\\bin"
