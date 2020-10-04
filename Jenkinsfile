@@ -6,7 +6,7 @@ ppipeline{
     stages{
         stage("SCM checkout"){
             steps{
-                git changelog: false, poll: false, url: 'https://github.com/vasu7github/hello-world.git'
+                git 'https://github.com/vasu7github/hello-world.git'
             }
         }
         stage("maven Build"){
