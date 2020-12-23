@@ -1,18 +1,28 @@
 pipeline{
     agent any
-    environment{
-    PATH = "C:\\DevTools\\apache-maven-3.6.3\\bin"
+    tools {
+  maven 'M2_HOME'
     }
     stages{
-        stage("SCM checkout"){
+        stage("Code Checkout"){
             steps{
-                git 'https://github.com/vasu7github/hello-world.git'
+                git credentialsId: '8cd5225c-be14-49b6-9d25-1e2edc715d78', url: 'https://github.com/vasu7github/my-app.git'
             }
         }
-        stage("maven Build"){
+        stage("BUILD"){
             steps{
-                bat "mvn clean package"
+                sh 'mvn clean install package'
+            }
+        }
+        stage("Test"){
+            steps{
+                sh 'mvn test'
+            }
+        post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
             }
         }
     }
-}
+}    
